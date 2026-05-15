@@ -1,6 +1,6 @@
 # portlandMapsMcp
 
-**Bun + TypeScript** MCP server over **Streamable HTTP** with **`helloWorld`** + **Phase 2 PortlandMaps tools**: `ping`, `resolve_address`, `get_property_overview`, `get_hazard_profile`.
+**Bun + TypeScript** MCP server over **Streamable HTTP** with **Phase 2 PortlandMaps tools**: `ping`, `resolve_address`, `get_property_overview`, `get_hazard_profile`.
 
 ## Setup
 
@@ -23,7 +23,6 @@ The server sets **`idleTimeout: 0`** on `Bun.serve` so MCP’s SSE stream is not
 
 | Tool | Purpose |
 |------|--------|
-| `helloWorld` | Quick greeting (no API key) |
 | `ping` | Confirms server + whether API key is loaded |
 | `resolve_address` | PortlandMaps `/api/suggest/` → candidates + JSON + HTML card |
 | `get_property_overview` | Assessor, zoning, leaf day, school/park, hazard chips (`lat`/`lng` required; `property_id` for parcel data) |
@@ -66,5 +65,4 @@ That means **HTTPS certificate verification failed**: Bun could not find a trust
 - [`src/registerTools.ts`](src/registerTools.ts) — `createMcpServer(apiKey)`
 - [`src/providers/portlandMapsProvider.ts`](src/providers/portlandMapsProvider.ts) — suggest + detail + normalization
 - [`src/ui/cards.ts`](src/ui/cards.ts) — HTML cards for tools
-- [`src/tools/helloWorld.ts`](src/tools/helloWorld.ts)
 - [`docs/hackathon-plan.md`](docs/hackathon-plan.md) — phased roadmap

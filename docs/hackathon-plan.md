@@ -55,7 +55,7 @@ flowchart LR
 ```
 
 - **[src/server.ts](../src/server.ts):** `Bun.serve`; **`/mcp`** → `WebStandardStreamableHTTPServerTransport` + `createMcpServer()`; **`/health`**; use **`idleTimeout: 0`** for SSE (see Bun docs).
-- **[src/registerTools.ts](../src/registerTools.ts):** `McpServer` **`name: "portlandMapsMcp"`**; register tools (minimal baseline: [`helloWorld`](../src/tools/helloWorld.ts)); full build adds `ping`, `resolve_address`, `get_property_overview`, `get_hazard_profile`, etc.
+- **[src/registerTools.ts](../src/registerTools.ts):** `McpServer` **`name: "portlandMapsMcp"`**; register tools (`ping`, `resolve_address`, `get_property_overview`, `get_hazard_profile`, etc.).
 - **Provider layer (when restored):** Portland `suggest` / `detail` HTTP + normalization (aligned with original hackathon plan §4 / §7).
 - **Cache (when restored):** TTL cache (~1h) on URL keys for suggest/detail.
 - **`public/map.html`** (or static route): **simple map app** — query params `lat`, `lng`, optional `layers=zoning,hazards` — OSM + Leaflet via CDN or ArcGIS export image; no heavy build step.

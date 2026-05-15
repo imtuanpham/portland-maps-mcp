@@ -1,0 +1,89 @@
+// Bun Snapshot v1, https://bun.sh/docs/test/snapshots
+
+exports[`MCP tool chain: resolve_address → overview → hazards chains three tools over in-memory MCP transport: resolve_address 1`] = `
+{
+  "content": [
+    {
+      "text": "One strong match. Use its property_id and coordinates with get_property_overview / get_hazard_profile.",
+      "type": "text",
+    },
+    {
+      "text": 
+"\`\`\`json
+[
+  {
+    "displayAddress": "111 SW 5TH AVE",
+    "propertyId": "R496358",
+    "stateId": "1N1E34CD  80000",
+    "lat": 45.52264,
+    "lng": -122.67586,
+    "xWebMercator": -13656213.981,
+    "yWebMercator": 5704178.4,
+    "confidence": 0.78
+  }
+]
+\`\`\`"
+,
+      "type": "text",
+    },
+  ],
+  "isError": undefined,
+  "joinedText": 
+"One strong match. Use its property_id and coordinates with get_property_overview / get_hazard_profile.
+\`\`\`json
+[
+  {
+    "displayAddress": "111 SW 5TH AVE",
+    "propertyId": "R496358",
+    "stateId": "1N1E34CD  80000",
+    "lat": 45.52264,
+    "lng": -122.67586,
+    "xWebMercator": -13656213.981,
+    "yWebMercator": 5704178.4,
+    "confidence": 0.78
+  }
+]
+\`\`\`"
+,
+}
+`;
+
+exports[`MCP tool chain: resolve_address → overview → hazards chains three tools over in-memory MCP transport: get_property_overview 1`] = `
+{
+  "content": [
+    {
+      "text": "111 SW 5TH AVE (45.52264, -122.67586). Neighborhood: ASSOCIATION OF UNIT OWNERS OF ONE ELEVEN TOWER CONDO. Council: 4. Hazard summary: Liquefaction:high, Cascadia EQ:high, Landslide:unknown, Flood:unknown, Steep slope:unknown, Wildfire:unknown.",
+      "type": "text",
+    },
+  ],
+  "isError": undefined,
+  "joinedText": "111 SW 5TH AVE (45.52264, -122.67586). Neighborhood: ASSOCIATION OF UNIT OWNERS OF ONE ELEVEN TOWER CONDO. Council: 4. Hazard summary: Liquefaction:high, Cascadia EQ:high, Landslide:unknown, Flood:unknown, Steep slope:unknown, Wildfire:unknown.",
+}
+`;
+
+exports[`MCP tool chain: resolve_address → overview → hazards chains three tools over in-memory MCP transport: get_hazard_profile 1`] = `
+{
+  "content": [
+    {
+      "text": 
+"Liquefaction: high — High, Very High
+Cascadia shaking: high — See detail response
+Landslide: unknown — See detail response
+Flood: unknown — See detail response
+Steep slope: unknown — See detail response
+Wildland fire: unknown — See detail response"
+,
+      "type": "text",
+    },
+  ],
+  "isError": undefined,
+  "joinedText": 
+"Liquefaction: high — High, Very High
+Cascadia shaking: high — See detail response
+Landslide: unknown — See detail response
+Flood: unknown — See detail response
+Steep slope: unknown — See detail response
+Wildland fire: unknown — See detail response"
+,
+}
+`;

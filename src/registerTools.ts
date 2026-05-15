@@ -2,16 +2,9 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
 import { PortlandMapsProvider } from "./providers/portlandMapsProvider.ts";
 import type { AddressCandidate } from "./providers/types.ts";
-import { registerHelloWorldTool } from "./tools/helloWorld.ts";
-import {
-  disambiguationCardHtml,
-  hazardPanelHtml,
-  propertyOverviewCardHtml,
-} from "./ui/cards.ts";
 
 /** Tool names exposed by this server (for `/health`). */
 export const MCP_TOOL_NAMES = [
-  "helloWorld",
   "ping",
   "resolve_address",
   "get_property_overview",
@@ -95,8 +88,6 @@ export function createMcpServer(apiKey: string | undefined): McpServer {
     version: "0.1.0",
   });
 
-  registerHelloWorldTool(server);
-
   const provider = apiKey ? new PortlandMapsProvider(apiKey) : null;
 
   server.registerTool(
@@ -145,9 +136,8 @@ export function createMcpServer(apiKey: string | undefined): McpServer {
           ? `One strong match. Use its property_id and coordinates with get_property_overview / get_hazard_profile.`
           : `${candidates.length} matches — choose the best property_id + address pair for follow-up tools.`;
       const structured = JSON.stringify(candidates, null, 2);
-      const html = disambiguationCardHtml(candidates);
       return {
-        content: toolText(summary, "```json\n" + structured + "\n```", html),
+        content: toolText(summary, "```json\n" + structured + "\n```"),
       };
     },
   );
@@ -178,9 +168,8 @@ export function createMcpServer(apiKey: string | undefined): McpServer {
       }
       const { overview } = await provider.getPropertyOverview(c);
       const text = overviewSummary(overview);
-      const html = propertyOverviewCardHtml(overview);
       return {
-        content: toolText(text, html),
+        content: toolText(text),
       };
     },
   );
@@ -209,9 +198,8 @@ export function createMcpServer(apiKey: string | undefined): McpServer {
       const c = toCandidate(args);
       const profile = await provider.getHazardProfile(c);
       const text = hazardSummary(profile);
-      const html = hazardPanelHtml(profile);
       return {
-        content: toolText(text || "No hazard rows returned.", html),
+        content: toolText(text || "No hazard rows returned."),
       };
     },
   );
