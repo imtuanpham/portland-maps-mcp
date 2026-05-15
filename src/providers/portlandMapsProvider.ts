@@ -1,6 +1,11 @@
 import { stableKey, TtlCache } from "../cache.ts";
 import { getConfig } from "../config.ts";
 import { webMercatorDetailId } from "../geo.ts";
+import {
+  buildPermitsBuyerSummary,
+  parsePermitRows,
+  type PermitRecord,
+} from "./permits.ts";
 import type {
   AddressCandidate,
   HazardProfile,
@@ -10,6 +15,21 @@ import type {
 
 const suggestCache = new TtlCache<unknown>();
 const detailCache = new TtlCache<unknown>();
+const permitListCache = new TtlCache<unknown>();
+
+export type PermitSearchParams = {
+  property_id?: string;
+  address?: string;
+  ivr_number?: string;
+  application_number?: string;
+  date_from?: string;
+  date_to?: string;
+  /** PortlandMaps: issued | review | final (default issued when dates used). */
+  date_type?: string;
+  search_type_id?: number;
+  count?: number;
+  page?: number;
+};
 
 export const HAZARD_DETAIL_TYPES = [
   "hazard-liquefaction",
@@ -267,6 +287,32 @@ export class PortlandMapsClient {
     u.searchParams.set("api_key", this.apiKey);
     return this.fetchJson(u.toString(), detailCache);
   }
+
+  /** `GET /api/permit/` — broad search; prefer narrow filters to limit payload. */
+  async permitSearch(params: PermitSearchParams): Promise<unknown> {
+    const { baseUrl } = getConfig();
+    const u = new URL(`${baseUrl}/permit/`);
+    u.searchParams.set("format", "json");
+    u.searchParams.set("api_key", this.apiKey);
+    const count = Math.min(Math.max(params.count ?? 25, 1), 100);
+    u.searchParams.set("count", String(count));
+    if (params.page !== undefined) u.searchParams.set("page", String(params.page));
+    const q = (k: string, v: string | number | undefined) => {
+      if (v === undefined) return;
+      const s = String(v).trim();
+      if (s.length === 0) return;
+      u.searchParams.set(k, s);
+    };
+    q("property_id", params.property_id);
+    q("address", params.address);
+    q("ivr_number", params.ivr_number);
+    q("application_number", params.application_number);
+    q("date_from", params.date_from);
+    q("date_to", params.date_to);
+    q("date_type", params.date_type);
+    if (params.search_type_id !== undefined) u.searchParams.set("search_type_id", String(params.search_type_id));
+    return this.fetchJson(u.toString(), permitListCache);
+  }
 }
 
 export class PortlandMapsProvider {
@@ -452,6 +498,47 @@ export class PortlandMapsProvider {
       }
     }
     return { address: c.displayAddress, lat: c.lat, lng: c.lng, hazards };
+  }
+
+  /** Taxlot-scoped permit / case list (`detail_type=permits`). */
+  async getPropertyPermits(
+    propertyId: string,
+    displayAddress?: string,
+  ): Promise<{ rows: PermitRecord[]; summary: string; error?: string }> {
+    try {
+      const raw = await this.client.detail("permits", propertyId, "*");
+      if (raw && typeof raw === "object" && (raw as { status?: string }).status === "error") {
+        const msg = JSON.stringify(raw).slice(0, 400);
+        console.error("[portlandmaps] permits detail error", msg);
+        return {
+          rows: [],
+          summary: "PortlandMaps returned an error for permits. Verify property_id is a taxlot property_id from resolve_address.",
+          error: msg,
+        };
+      }
+      const rows = parsePermitRows(raw);
+      return { rows, summary: buildPermitsBuyerSummary(rows, displayAddress) };
+    } catch (e) {
+      console.error("[portlandmaps] permits exception", e);
+      return { rows: [], summary: "Failed to load permits from PortlandMaps.", error: String(e) };
+    }
+  }
+
+  /** `/api/permit/` search — supply at least one narrow filter from the tool schema. */
+  async searchPermits(params: PermitSearchParams): Promise<{ rows: PermitRecord[]; summary: string; error?: string }> {
+    try {
+      const raw = await this.client.permitSearch(params);
+      if (raw && typeof raw === "object" && (raw as { status?: string }).status === "error") {
+        const msg = JSON.stringify(raw).slice(0, 400);
+        console.error("[portlandmaps] permit search error", msg);
+        return { rows: [], summary: "PortlandMaps permit search returned an error.", error: msg };
+      }
+      const rows = parsePermitRows(raw);
+      return { rows, summary: buildPermitsBuyerSummary(rows) };
+    } catch (e) {
+      console.error("[portlandmaps] permit search exception", e);
+      return { rows: [], summary: "Failed to search permits.", error: String(e) };
+    }
   }
 }
 

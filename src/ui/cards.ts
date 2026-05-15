@@ -1,3 +1,4 @@
+import type { PermitRecord } from "../providers/permits.ts";
 import type { AddressCandidate } from "../providers/types.ts";
 
 const accent = "#2d5f3e";
@@ -95,6 +96,40 @@ const hazardTitles: Record<string, string> = {
   "hazard-steep-slope": "Steep slope",
   "hazard-wild-lands-fire": "Wildland fire",
 };
+
+/** Compact permit / case table (PortlandMaps `permits` detail or `/api/permit/` search). */
+export function permitsTableHtml(rows: PermitRecord[], title: string): string {
+  const slice = rows.slice(0, 30);
+  const more = rows.length > slice.length ? `<div style="padding:10px 14px;font-size:12px;color:#666;">…and ${rows.length - slice.length} more row(s) not shown.</div>` : "";
+  const body = slice
+    .map((r) => {
+      const tag = r.isCodeEnforcement
+        ? `<span style="font-size:10px;font-weight:700;color:#8b2942;background:#fdecef;padding:2px 6px;border-radius:4px;">enforcement</span>`
+        : "";
+      return `<tr>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;vertical-align:top;">${esc(r.permitLabel)} ${tag}</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">${esc(r.category ?? "—")}</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">${esc(r.status ?? "—")}</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:11px;color:#555;">${esc(r.applicationNumber ?? "—")}<br/><span style="color:#888;">IVR ${esc(r.ivrNumber ?? "—")}</span></td>
+      </tr>`;
+    })
+    .join("");
+  return `
+  <div style="max-width:720px;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,0.08);border:1px solid #e0e0e0;overflow:hidden;background:#fff;font-family:system-ui,sans-serif;">
+    <div style="padding:12px 14px;background:${accent};color:#fff;font-weight:600;font-size:14px;">${esc(title)}</div>
+    <div style="padding:10px 14px;font-size:12px;color:#555;line-height:1.45;">PortlandMaps mixes building permits with code enforcement / case types. Rows tagged <strong>enforcement</strong> are flagged from PortlandMaps category labels (e.g. "Enforcement: …").</div>
+    <table style="width:100%;border-collapse:collapse;font-size:12px;">
+      <thead><tr style="background:#f4f6f4;text-align:left;">
+        <th style="padding:8px 10px;font-size:11px;color:#333;">Permit / case</th>
+        <th style="padding:8px 10px;font-size:11px;color:#333;">Type</th>
+        <th style="padding:8px 10px;font-size:11px;color:#333;">Status</th>
+        <th style="padding:8px 10px;font-size:11px;color:#333;">Application / IVR</th>
+      </tr></thead>
+      <tbody>${body}</tbody>
+    </table>
+    ${more}
+  </div>`;
+}
 
 export function hazardPanelHtml(profile: import("../providers/types.ts").HazardProfile): string {
   const cards = hazardOrder

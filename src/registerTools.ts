@@ -1,7 +1,9 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
 import { PortlandMapsProvider } from "./providers/portlandMapsProvider.ts";
+import type { PermitRecord } from "./providers/permits.ts";
 import type { AddressCandidate } from "./providers/types.ts";
+import { permitsTableHtml } from "./ui/cards.ts";
 
 /** Tool names exposed by this server (for `/health`). */
 export const MCP_TOOL_NAMES = [
@@ -9,6 +11,8 @@ export const MCP_TOOL_NAMES = [
   "resolve_address",
   "get_property_overview",
   "get_hazard_profile",
+  "get_property_permits",
+  "search_permits",
 ] as const;
 
 function toolText(...parts: string[]): { type: "text"; text: string }[] {
@@ -82,6 +86,55 @@ function toCandidate(args: z.infer<typeof locationArgs>): AddressCandidate {
   };
 }
 
+const MAX_PERMIT_JSON_ROWS = 60;
+
+function permitRowsToJson(rows: PermitRecord[]) {
+  return rows.map((r) => ({
+    permitLabel: r.permitLabel,
+    applicationNumber: r.applicationNumber ?? null,
+    category: r.category ?? null,
+    work: r.work ?? null,
+    status: r.status ?? null,
+    lastAction: r.lastAction ?? null,
+    ivrNumber: r.ivrNumber ?? null,
+    address: r.address ?? null,
+    isCodeEnforcement: r.isCodeEnforcement,
+  }));
+}
+
+const propertyPermitsArgs = z.object({
+  display_address: z.string().optional().describe("Optional address label from resolve_address (for summary text)"),
+  property_id: z.string().min(1).describe("Taxlot property_id from resolve_address (required)"),
+});
+
+const searchPermitsArgs = z
+  .object({
+    property_id: z.string().optional().describe("Taxlot property_id"),
+    address: z.string().optional().describe("Address search string"),
+    ivr_number: z.string().optional().describe("IVR / case number (digits)"),
+    application_number: z.string().optional().describe("Permit application # e.g. 19-123456-000-00-FA"),
+    date_from: z.string().optional().describe("mm/dd/yyyy (use with date_to)"),
+    date_to: z.string().optional().describe("mm/dd/yyyy"),
+    date_type: z.enum(["issued", "review", "final"]).optional(),
+    search_type_id: z.number().optional().describe("PortlandMaps permit search_type_id filter"),
+    count: z.number().min(1).max(100).optional().describe("Max rows (default 25, cap 100)"),
+    page: z.number().optional(),
+  })
+  .refine(
+    (d) =>
+      Boolean(d.property_id?.trim()) ||
+      Boolean(d.address?.trim()) ||
+      Boolean(d.ivr_number?.trim()) ||
+      Boolean(d.application_number?.trim()) ||
+      d.search_type_id !== undefined ||
+      (Boolean(d.date_from?.trim()) && Boolean(d.date_to?.trim())),
+    {
+      message:
+        "Provide at least one of: property_id, address, ivr_number, application_number, search_type_id, or both date_from and date_to (mm/dd/yyyy).",
+      path: ["address"],
+    },
+  );
+
 export function createMcpServer(apiKey: string | undefined): McpServer {
   const server = new McpServer({
     name: "portlandMapsMcp",
@@ -133,7 +186,7 @@ export function createMcpServer(apiKey: string | undefined): McpServer {
       }
       const summary =
         candidates.length === 1
-          ? `One strong match. Use its property_id and coordinates with get_property_overview / get_hazard_profile.`
+          ? `One strong match. Use its property_id and coordinates with get_property_overview, get_hazard_profile, and get_property_permits.`
           : `${candidates.length} matches — choose the best property_id + address pair for follow-up tools.`;
       const structured = JSON.stringify(candidates, null, 2);
       return {
@@ -201,6 +254,97 @@ export function createMcpServer(apiKey: string | undefined): McpServer {
       return {
         content: toolText(text || "No hazard rows returned."),
       };
+    },
+  );
+
+  server.registerTool(
+    "get_property_permits",
+    {
+      title: "Property permits and cases",
+      description:
+        "Permits and related cases for a taxlot from PortlandMaps detail_type=permits. Includes building permits and code enforcement–style rows when present. Requires property_id from resolve_address.",
+      inputSchema: propertyPermitsArgs,
+    },
+    async (args) => {
+      if (!provider) {
+        return {
+          content: toolText("Missing PORTLANDMAPS_API_KEY in environment."),
+          isError: true,
+        };
+      }
+      const propertyId = args.property_id.trim();
+      if (!propertyId) {
+        return { content: toolText("property_id is required."), isError: true };
+      }
+      const { rows, summary, error } = await provider.getPropertyPermits(propertyId, args.display_address?.trim());
+      const slice = rows.slice(0, MAX_PERMIT_JSON_ROWS);
+      const jsonBody = JSON.stringify(
+        {
+          property_id: propertyId,
+          row_count: rows.length,
+          rows_json_truncated: rows.length > slice.length,
+          rows: permitRowsToJson(slice),
+        },
+        null,
+        2,
+      );
+      const truncNote =
+        rows.length > slice.length
+          ? `Structured JSON lists the first ${slice.length} of ${rows.length} rows.`
+          : "";
+      const html = rows.length ? permitsTableHtml(rows, `Permits / cases — ${args.display_address ?? propertyId}`) : "";
+      const parts = [summary, truncNote, "```json\n" + jsonBody + "\n```", html];
+      if (error) parts.push(`API detail: ${error.slice(0, 280)}`);
+      return { content: toolText(...parts), ...(rows.length === 0 && error ? { isError: true } : {}) };
+    },
+  );
+
+  server.registerTool(
+    "search_permits",
+    {
+      title: "Search permits (citywide)",
+      description:
+        "Search PortlandMaps /api/permit/ with filters. Prefer get_property_permits when you already have a taxlot property_id. Supply at least one scope field (see schema). Dates use mm/dd/yyyy.",
+      inputSchema: searchPermitsArgs,
+    },
+    async (args) => {
+      if (!provider) {
+        return {
+          content: toolText("Missing PORTLANDMAPS_API_KEY in environment."),
+          isError: true,
+        };
+      }
+      const params = {
+        property_id: args.property_id?.trim() || undefined,
+        address: args.address?.trim() || undefined,
+        ivr_number: args.ivr_number?.trim() || undefined,
+        application_number: args.application_number?.trim() || undefined,
+        date_from: args.date_from?.trim() || undefined,
+        date_to: args.date_to?.trim() || undefined,
+        date_type: args.date_type,
+        search_type_id: args.search_type_id,
+        count: args.count,
+        page: args.page,
+      };
+      const { rows, summary, error } = await provider.searchPermits(params);
+      const slice = rows.slice(0, MAX_PERMIT_JSON_ROWS);
+      const jsonBody = JSON.stringify(
+        {
+          row_count: rows.length,
+          rows_json_truncated: rows.length > slice.length,
+          rows: permitRowsToJson(slice),
+        },
+        null,
+        2,
+      );
+      const truncNote =
+        rows.length > slice.length
+          ? `Structured JSON lists the first ${slice.length} of ${rows.length} rows.`
+          : "";
+      const html = rows.length ? permitsTableHtml(rows, "Permit search results") : "";
+      const parts = [summary, truncNote, "```json\n" + jsonBody + "\n```", html];
+      if (error) parts.push(`API detail: ${error.slice(0, 280)}`);
+      return { content: toolText(...parts), ...(rows.length === 0 && error ? { isError: true } : {}) };
     },
   );
 

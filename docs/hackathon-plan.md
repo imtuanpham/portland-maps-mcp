@@ -1,6 +1,6 @@
 ---
 name: PortlandMaps MCP Phases
-overview: Bun + TypeScript MCP server (**implementation id `portlandMapsMcp`**) with Streamable HTTP on port 3001; Phase 2 PortlandMaps tools shipped (`resolve_address`, `get_property_overview`, `get_hazard_profile`); phases 3–5 (permits, map UI, demo hardening) pending.
+overview: Bun + TypeScript MCP server (**implementation id `portlandMapsMcp`**) with Streamable HTTP on port 3001; Phases 1–3 shipped (address, overview, hazards, **permits** via `get_property_permits` + `search_permits`); phases 4–5 (map UI, demo hardening) pending.
 todos:
   - id: phase-1-scaffold
     content: Bun + TS + MCP HTTP on PORT; .env.example / .gitignore .env.local; ping tool; README run
@@ -10,7 +10,7 @@ todos:
     status: completed
   - id: phase-3-permits
     content: detail_type=permits + /api/permit/ search; buyer-oriented summaries; enforcement framing
-    status: pending
+    status: completed
   - id: phase-4-map-app
     content: Serve public/map.html; show_location_map tool with iframe/link on same PORT
     status: pending
@@ -21,9 +21,9 @@ todos:
 
 # PortlandMaps MCP — revised hackathon build plan
 
-> **Repo note:** This document was copied from the Cursor plan. **Phase 2 tools** (`resolve_address`, `get_property_overview`, `get_hazard_profile`, `ping`) are restored in `src/`; phases 3–5 remain future work.
+> **Repo note:** This document was copied from the Cursor plan. **Phases 1–3** are implemented in `src/` (`ping`, `resolve_address`, `get_property_overview`, `get_hazard_profile`, `get_property_permits`, `search_permits`); phases 4–5 remain future work.
 
-**Starting point:** Workspace **portland-maps-mcp** (folder name). **MCP implementation / service id:** `portlandMapsMcp` — used for `package.json` `name`, `McpServer` metadata, `/health` JSON `service`, and log prefix `[portlandMapsMcp]`. **Phases 1–2** are implemented in-repo (HTTP + PortlandMaps address / overview / hazards); phases 3–5 remain as below.
+**Starting point:** Workspace **portland-maps-mcp** (folder name). **MCP implementation / service id:** `portlandMapsMcp` — used for `package.json` `name`, `McpServer` metadata, `/health` JSON `service`, and log prefix `[portlandMapsMcp]`. **Phases 1–3** are implemented in-repo (HTTP + PortlandMaps address / overview / hazards / permits); phases 4–5 remain as below.
 
 **Data path:** **Plan A** ([PortlandMaps API docs](https://www.portlandmaps.com/development/)): `GET https://www.portlandmaps.com/api/suggest/`, `GET https://www.portlandmaps.com/api/detail/`, and `GET https://www.portlandmaps.com/api/permit/` for permit search. Property-scoped permit lists align with `detail_type=permits` and **`detail_id` = taxlot `property_id`** (per docs table: `permits` | Taxlots Property ID).
 
@@ -55,9 +55,9 @@ flowchart LR
 ```
 
 - **[src/server.ts](../src/server.ts):** `Bun.serve`; **`/mcp`** → `WebStandardStreamableHTTPServerTransport` + `createMcpServer()`; **`/health`**; use **`idleTimeout: 0`** for SSE (see Bun docs).
-- **[src/registerTools.ts](../src/registerTools.ts):** `McpServer` **`name: "portlandMapsMcp"`**; register tools (`ping`, `resolve_address`, `get_property_overview`, `get_hazard_profile`, etc.).
-- **Provider layer (when restored):** Portland `suggest` / `detail` HTTP + normalization (aligned with original hackathon plan §4 / §7).
-- **Cache (when restored):** TTL cache (~1h) on URL keys for suggest/detail.
+- **[src/registerTools.ts](../src/registerTools.ts):** `McpServer` **`name: "portlandMapsMcp"`**; register tools (`ping`, `resolve_address`, `get_property_overview`, `get_hazard_profile`, `get_property_permits`, `search_permits`).
+- **Provider layer:** Portland `suggest` / `detail` / `permit` HTTP + normalization (aligned with original hackathon plan §4 / §7).
+- **Cache:** TTL cache (~1h) on URL keys for suggest, detail, and permit search.
 - **`public/map.html`** (or static route): **simple map app** — query params `lat`, `lng`, optional `layers=zoning,hazards` — OSM + Leaflet via CDN or ArcGIS export image; no heavy build step.
 
 ---
@@ -90,7 +90,7 @@ flowchart LR
 
 ---
 
-### Phase 3 — **Permits + “violations / enforcement” angle (~60–90 min)**
+### Phase 3 — **Permits + “violations / enforcement” angle (~60–90 min)** — **done**
 
 **Goal:** Tools that support **economic / activity signals** for buyers and researchers.
 
@@ -99,6 +99,13 @@ flowchart LR
 3. **“Violations” framing:** Portland’s permit search includes **enforcement** categories (Construction Code, Housing, Nuisance, etc.). Label as **code enforcement / cases** in UI copy.
 
 **Exit criteria:** For a property with known permit history, tool returns non-empty structured rows + human summary.
+
+**Implementation notes (vs. original outline):**
+
+- Permit **detail** responses expose rows under a top-level **`related`** array (not only `result`/`data` wrappers); the parser in [src/providers/permits.ts](../src/providers/permits.ts) accepts `related` and other common array keys.
+- **`search_permits`** is implemented (not deferred); the tool requires **at least one scope** (`property_id`, `address`, `ivr_number`, `application_number`, `search_type_id`, or **`date_from` + `date_to`**) so callers do not issue unbounded citywide queries by mistake.
+- MCP responses cap structured JSON at **60** rows (with a truncation flag) and append an HTML table (**30** rows) via [src/ui/cards.ts](../src/ui/cards.ts) for hosts that render HTML in text parts.
+- Parsing lives in **`src/providers/permits.ts`** (+ unit tests) rather than a separate `src/tools/getPropertyPermits.ts` module — same behavior, flatter layout.
 
 ---
 
@@ -136,11 +143,11 @@ flowchart LR
 | ----------- | ----------- | ----- |
 | Entry       | HTTP + MCP | `package.json`, `tsconfig.json`, `src/server.ts` |
 | Config      | Env         | `src/config.ts`, `.env.example`, `.gitignore` |
-| Data        | Portland API | `src/providers/types.ts`, `src/providers/portlandMapsProvider.ts`, `src/cache.ts`, `src/geo.ts` |
-| Tools       | MCP surface | `src/registerTools.ts` and/or `src/tools/*.ts` |
+| Data        | Portland API | `src/providers/types.ts`, `src/providers/portlandMapsProvider.ts`, `src/providers/permits.ts`, `src/cache.ts`, `src/geo.ts` |
+| Tools       | MCP surface | `src/registerTools.ts` |
 | UI          | HTML cards  | `src/ui/cards.ts` (or equivalent) |
 | Map app     | Static page | `public/map.html` |
-| Permits     | New tools   | e.g. `src/tools/getPropertyPermits.ts` |
+| Permits     | Parse + tests | `src/providers/permits.ts`, `src/providers/permits.test.ts` |
 | Demo        | Seeds + docs | `demo/seed.json`, `README.md` |
 
 ---

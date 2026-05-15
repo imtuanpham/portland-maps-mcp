@@ -61,7 +61,7 @@ describe("resolve_address (PortlandMaps suggest e2e)", () => {
       viaProvider.length === 0
         ? `No matches for "${query}". Try a fuller street address inside Portland city limits.`
         : viaProvider.length === 1
-          ? "One strong match. Use its property_id and coordinates with get_property_overview / get_hazard_profile."
+          ? "One strong match. Use its property_id and coordinates with get_property_overview, get_hazard_profile, and get_property_permits."
           : `${viaProvider.length} matches — choose the best property_id + address pair for follow-up tools.`;
     logSection("MCP-style summary (text only)", summary);
 

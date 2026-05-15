@@ -1,6 +1,6 @@
 /**
  * Chains MCP tools for a concrete Portland address:
- * resolve_address("111 SW 5th Ave") → get_property_overview → get_hazard_profile.
+ * resolve_address("111 SW 5th Ave") → get_property_overview → get_hazard_profile → get_property_permits (when property_id).
  *
  * Uses InMemoryTransport + MCP Client against createMcpServer (real tool handlers + Zod).
  *
@@ -135,11 +135,13 @@ function candidateToToolLocationArgs(c: AddressCandidate): Record<string, string
   return args;
 }
 
-describe("MCP tool chain: resolve_address → overview → hazards", () => {
+describe("MCP tool chain: resolve → overview → hazards → permits", () => {
   const cfg = getConfig();
   const hasKey = Boolean(cfg.portlandMapsApiKey);
 
-  test.skipIf(!hasKey)("chains three tools over in-memory MCP transport", async () => {
+  test.skipIf(!hasKey)(
+    "chains tools over in-memory MCP transport",
+    async () => {
     const apiKey = cfg.portlandMapsApiKey!;
     const resolveQuery = (process.env.E2E_RESOLVE_ADDRESS_QUERY ?? DEFAULT_RESOLVE_QUERY).trim();
 
@@ -192,10 +194,25 @@ describe("MCP tool chain: resolve_address → overview → hazards", () => {
 
       if (chosen.propertyId) {
         expect(hazardText).not.toMatch(/Property ID required for parcel-linked hazards/);
+
+        const permitsRes = await client.callTool({
+          name: "get_property_permits",
+          arguments: {
+            property_id: chosen.propertyId,
+            display_address: chosen.displayAddress,
+          },
+        });
+        expect(mcpToolResultSnapshot(permitsRes)).toMatchSnapshot("get_property_permits");
+        expect(permitsRes.isError).not.toBe(true);
+        const permitsText = joinToolText(permitsRes);
+        expect(permitsText.length).toBeGreaterThan(30);
+        expect(permitsText).toMatch(/```json/);
       }
     } finally {
       await client.close().catch(() => {});
       await mcp.close().catch(() => {});
     }
-  });
+    },
+    { timeout: 60_000 },
+  );
 });

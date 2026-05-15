@@ -1,10 +1,10 @@
 // Bun Snapshot v1, https://bun.sh/docs/test/snapshots
 
-exports[`MCP tool chain: resolve_address → overview → hazards chains three tools over in-memory MCP transport: resolve_address 1`] = `
+exports[`MCP tool chain: resolve → overview → hazards → permits chains tools over in-memory MCP transport: resolve_address 1`] = `
 {
   "content": [
     {
-      "text": "One strong match. Use its property_id and coordinates with get_property_overview / get_hazard_profile.",
+      "text": "One strong match. Use its property_id and coordinates with get_property_overview, get_hazard_profile, and get_property_permits.",
       "type": "text",
     },
     {
@@ -29,7 +29,7 @@ exports[`MCP tool chain: resolve_address → overview → hazards chains three t
   ],
   "isError": undefined,
   "joinedText": 
-"One strong match. Use its property_id and coordinates with get_property_overview / get_hazard_profile.
+"One strong match. Use its property_id and coordinates with get_property_overview, get_hazard_profile, and get_property_permits.
 \`\`\`json
 [
   {
@@ -48,7 +48,7 @@ exports[`MCP tool chain: resolve_address → overview → hazards chains three t
 }
 `;
 
-exports[`MCP tool chain: resolve_address → overview → hazards chains three tools over in-memory MCP transport: get_property_overview 1`] = `
+exports[`MCP tool chain: resolve → overview → hazards → permits chains tools over in-memory MCP transport: get_property_overview 1`] = `
 {
   "content": [
     {
@@ -61,7 +61,7 @@ exports[`MCP tool chain: resolve_address → overview → hazards chains three t
 }
 `;
 
-exports[`MCP tool chain: resolve_address → overview → hazards chains three tools over in-memory MCP transport: get_hazard_profile 1`] = `
+exports[`MCP tool chain: resolve → overview → hazards → permits chains tools over in-memory MCP transport: get_hazard_profile 1`] = `
 {
   "content": [
     {
@@ -84,6 +84,1704 @@ Landslide: unknown — See detail response
 Flood: unknown — See detail response
 Steep slope: unknown — See detail response
 Wildland fire: unknown — See detail response"
+,
+}
+`;
+
+exports[`MCP tool chain: resolve → overview → hazards → permits chains tools over in-memory MCP transport: get_property_permits 1`] = `
+{
+  "content": [
+    {
+      "text": "111 SW 5TH AVE — 814 permit / case row(s) on file. No rows were tagged as dedicated enforcement categories; still scan types for compliance / tree / ROW activity. Roughly 21 row(s) have a status that may still be in progress (heuristic).",
+      "type": "text",
+    },
+    {
+      "text": "Structured JSON lists the first 60 of 814 rows.",
+      "type": "text",
+    },
+    {
+      "text": 
+"\`\`\`json
+{
+  "property_id": "R496358",
+  "row_count": 814,
+  "rows_json_truncated": true,
+  "rows": [
+    {
+      "permitLabel": "Tree Code",
+      "applicationNumber": "2025-045832-000-00-UF",
+      "category": "Code Compliance",
+      "work": "Right-of-Way",
+      "status": "Closed - UF",
+      "lastAction": "October, 28 2025 18:29:49",
+      "ivrNumber": "5160833",
+      "address": "555 SW OAK ST",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Electrical Permit",
+      "applicationNumber": "2025-041359-000-00-ET",
+      "category": "Commercial or Multi-Family Dwelling/Structure",
+      "work": "New Construction",
+      "status": "Final Inspection Approved",
+      "lastAction": "May, 28 2025 13:01:33",
+      "ivrNumber": "5156160",
+      "address": "445 SW PINE ST",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Tree Code",
+      "applicationNumber": "2025-036686-000-00-UF",
+      "category": "Emergency",
+      "work": "Right-of-Way",
+      "status": "Emergency Resolved",
+      "lastAction": "June, 10 2025 11:22:20",
+      "ivrNumber": "5151271",
+      "address": "555 SW OAK ST",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Electrical Permit",
+      "applicationNumber": "2023-089795-000-00-ET",
+      "category": "Commercial or Multi-Family Dwelling/Structure",
+      "work": "New Construction",
+      "status": "Final Inspection Approved",
+      "lastAction": "October, 05 2023 10:07:02",
+      "ivrNumber": "4975049",
+      "address": "555 SW OAK ST",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Electrical Permit",
+      "applicationNumber": "2023-059047-000-00-ET",
+      "category": "Commercial or Multi-Family Dwelling/Structure",
+      "work": "Addition/Alteration/Replacement",
+      "status": "Final Inspection Approved",
+      "lastAction": "July, 10 2023 13:39:40",
+      "ivrNumber": "4942998",
+      "address": "129 SW 4TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2021-109891-000-00-FA",
+      "category": "Electrical",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "July, 15 2022 11:52:49",
+      "ivrNumber": "4751642",
+      "address": "129 SW 4TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2021-109888-000-00-FA",
+      "category": "Project",
+      "work": "Alteration",
+      "status": "Issued",
+      "lastAction": "November, 30 2021 10:14:45",
+      "ivrNumber": "4751639",
+      "address": "129 SW 4TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2021-054221-000-00-FA",
+      "category": "Electrical",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "May, 04 2023 12:56:08",
+      "ivrNumber": "4693487",
+      "address": "129 SW 4TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2021-044570-000-00-FA",
+      "category": "Building",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "May, 17 2023 04:10:37",
+      "ivrNumber": "4683347",
+      "address": "129 SW 4TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2021-044566-000-00-FA",
+      "category": "Project",
+      "work": "Alteration",
+      "status": "Issued",
+      "lastAction": "May, 06 2021 10:38:29",
+      "ivrNumber": "4683343",
+      "address": "129 SW 4TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2020-101726-000-00-FA",
+      "category": "Master",
+      "work": "Master",
+      "status": "Issued",
+      "lastAction": "January, 06 2020 11:22:38",
+      "ivrNumber": "4505325",
+      "address": "129 SW 4TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2019-178633-000-00-FA",
+      "category": "Fire Alarms",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "June, 26 2019 06:48:03",
+      "ivrNumber": "4409177",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2019-173920-000-00-FA",
+      "category": "Electrical",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "June, 28 2019 12:50:19",
+      "ivrNumber": "4404312",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2019-173913-000-00-FA",
+      "category": "Electrical",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "June, 28 2019 12:49:44",
+      "ivrNumber": "4404305",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2019-173233-000-00-FA",
+      "category": "Mechanical",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "June, 24 2019 18:08:09",
+      "ivrNumber": "4403605",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2019-172144-000-00-FA",
+      "category": "Fire Sprinklers",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "June, 10 2019 11:33:43",
+      "ivrNumber": "4402481",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2019-167550-000-00-FA",
+      "category": "Plumbing",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "June, 28 2019 07:55:15",
+      "ivrNumber": "4397765",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2019-166818-000-00-FA",
+      "category": "Electrical",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "June, 28 2019 12:49:06",
+      "ivrNumber": "4397009",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2019-162034-000-00-FA",
+      "category": "Building",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "July, 01 2019 10:34:57",
+      "ivrNumber": "4392074",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2019-162032-000-00-FA",
+      "category": "Project",
+      "work": "Alteration",
+      "status": "Issued",
+      "lastAction": "May, 08 2019 13:43:19",
+      "ivrNumber": "4392072",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Electrical Permit",
+      "applicationNumber": "2019-139939-000-00-ET",
+      "category": "Commercial or Multi-Family Dwelling/Structure",
+      "work": "Addition/Alteration/Replacement",
+      "status": "VOID",
+      "lastAction": "March, 23 2020 01:10:27",
+      "ivrNumber": "4369394",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2019-139067-000-00-FA",
+      "category": "Electrical",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "March, 28 2019 12:07:24",
+      "ivrNumber": "4368498",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2019-137226-000-00-FA",
+      "category": "Plumbing",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "April, 05 2019 14:07:04",
+      "ivrNumber": "4366579",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2019-135614-000-00-FA",
+      "category": "Building",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "April, 08 2019 14:35:04",
+      "ivrNumber": "4364912",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2019-135601-000-00-FA",
+      "category": "Project",
+      "work": "Alteration",
+      "status": "Issued",
+      "lastAction": "March, 20 2019 14:53:29",
+      "ivrNumber": "4364899",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Electrical Permit",
+      "applicationNumber": "2017-247841-000-00-ET",
+      "category": "Commercial or Multi-Family Dwelling/Structure",
+      "work": "Addition/Alteration/Replacement",
+      "status": "VOID",
+      "lastAction": "September, 22 2018 01:00:57",
+      "ivrNumber": "4096003",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Electrical Permit",
+      "applicationNumber": "2017-226464-000-00-ET",
+      "category": "Commercial or Multi-Family Dwelling/Structure",
+      "work": "Addition/Alteration/Replacement",
+      "status": "Final Inspection Approved",
+      "lastAction": "September, 12 2017 14:38:46",
+      "ivrNumber": "4074245",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Tree Code",
+      "applicationNumber": "2016-157161-000-00-UF",
+      "category": "Root Pruning",
+      "work": "Right-of-Way",
+      "status": "Expired - UF",
+      "lastAction": "August, 03 2022 13:19:17",
+      "ivrNumber": "3806324",
+      "address": "555 SW OAK ST",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Electrical Permit",
+      "applicationNumber": "2016-103803-000-00-ET",
+      "category": "Commercial or Multi-Family Dwelling/Structure",
+      "work": "Addition/Alteration/Replacement",
+      "status": "VOID",
+      "lastAction": "July, 31 2017 01:04:49",
+      "ivrNumber": "3751776",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Electrical Permit",
+      "applicationNumber": "2013-193136-000-00-ET",
+      "category": "Commercial or Multi-Family Dwelling/Structure",
+      "work": "Addition/Alteration/Replacement",
+      "status": "Final Inspection Approved",
+      "lastAction": "January, 08 2014 16:21:41",
+      "ivrNumber": "3353283",
+      "address": "555 SW OAK ST",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2013-159614-000-00-FA",
+      "category": "Fire Alarms",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "June, 05 2013 06:43:51",
+      "ivrNumber": "3319436",
+      "address": null,
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Early Assistance",
+      "applicationNumber": "2013-139300-000-00-EA",
+      "category": "DA - Design Advice Request",
+      "work": "Other",
+      "status": "Completed",
+      "lastAction": "June, 05 2013 14:44:14",
+      "ivrNumber": "3298907",
+      "address": "555 SW OAK ST",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Early Assistance",
+      "applicationNumber": "2013-139295-000-00-EA",
+      "category": "PC - PreApplication Conference",
+      "work": "z_PC - Required",
+      "status": "Completed",
+      "lastAction": "May, 14 2013 09:26:07",
+      "ivrNumber": "3298901",
+      "address": "555 SW OAK ST",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2010-126741-000-00-FA",
+      "category": "Plumbing",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "April, 19 2010 11:59:19",
+      "ivrNumber": "2941657",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2010-126681-000-00-FA",
+      "category": "Project",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "July, 18 2012 14:04:16",
+      "ivrNumber": "2941597",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2010-124508-000-00-FA",
+      "category": "Project",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "July, 18 2012 14:04:16",
+      "ivrNumber": "2939396",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2010-114601-000-00-FA",
+      "category": "Electrical",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "March, 25 2010 10:29:45",
+      "ivrNumber": "2929341",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2010-113234-000-00-FA",
+      "category": "Electrical",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "March, 26 2010 06:35:24",
+      "ivrNumber": "2927951",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2010-112935-000-00-FA",
+      "category": "Building",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "April, 22 2010 13:52:18",
+      "ivrNumber": "2927650",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2010-112934-000-00-FA",
+      "category": "Project",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "July, 18 2012 14:04:12",
+      "ivrNumber": "2927649",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2010-104893-000-00-FA",
+      "category": "Building",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "April, 22 2010 13:50:50",
+      "ivrNumber": "2919443",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2010-104891-000-00-FA",
+      "category": "Project",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "July, 18 2012 14:04:10",
+      "ivrNumber": "2919441",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2010-104695-000-00-FA",
+      "category": "Mechanical",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "February, 11 2010 14:16:14",
+      "ivrNumber": "2919244",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2010-103260-000-00-FA",
+      "category": "Electrical",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "February, 11 2010 07:21:58",
+      "ivrNumber": "2917795",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2010-103222-000-00-FA",
+      "category": "Electrical",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "February, 11 2010 07:21:09",
+      "ivrNumber": "2917757",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2010-101925-000-00-FA",
+      "category": "Electrical",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "January, 12 2010 07:42:50",
+      "ivrNumber": "2916433",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2010-101924-000-00-FA",
+      "category": "Electrical",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "January, 12 2010 07:42:07",
+      "ivrNumber": "2916432",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2010-101923-000-00-FA",
+      "category": "Project",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "July, 18 2012 14:04:10",
+      "ivrNumber": "2916431",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2010-101874-000-00-FA",
+      "category": "Building",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "February, 11 2010 14:17:01",
+      "ivrNumber": "2916379",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2010-101873-000-00-FA",
+      "category": "Project",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "July, 18 2012 14:04:10",
+      "ivrNumber": "2916377",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2009-179662-000-00-FA",
+      "category": "Electrical",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "April, 19 2010 06:58:57",
+      "ivrNumber": "2912007",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2009-179343-000-00-FA",
+      "category": "Mechanical",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "March, 17 2010 11:29:23",
+      "ivrNumber": "2911688",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2009-179255-000-00-FA",
+      "category": "Fire Sprinklers",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "January, 11 2010 09:03:32",
+      "ivrNumber": "2911599",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2009-178715-000-00-FA",
+      "category": "Plumbing",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "January, 29 2010 07:41:10",
+      "ivrNumber": "2911059",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2009-174694-000-00-FA",
+      "category": "Electrical",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "April, 19 2010 06:59:36",
+      "ivrNumber": "2904529",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2009-174595-DFS-01-FA",
+      "category": "Building",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "December, 21 2010 07:09:29",
+      "ivrNumber": "2910258",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2009-174595-000-00-FA",
+      "category": "Building",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "April, 19 2010 07:06:00",
+      "ivrNumber": "2904430",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2009-174593-000-00-FA",
+      "category": "Project",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "July, 18 2012 14:04:06",
+      "ivrNumber": "2904428",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2009-172299-000-00-FA",
+      "category": "Electrical",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "December, 01 2009 11:33:25",
+      "ivrNumber": "2901955",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2009-172294-000-00-FA",
+      "category": "Electrical",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "December, 01 2009 11:32:39",
+      "ivrNumber": "2901950",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    }
+  ]
+}
+\`\`\`"
+,
+      "type": "text",
+    },
+    {
+      "text": 
+"
+  <div style="max-width:720px;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,0.08);border:1px solid #e0e0e0;overflow:hidden;background:#fff;font-family:system-ui,sans-serif;">
+    <div style="padding:12px 14px;background:#2d5f3e;color:#fff;font-weight:600;font-size:14px;">Permits / cases — 111 SW 5TH AVE</div>
+    <div style="padding:10px 14px;font-size:12px;color:#555;line-height:1.45;">PortlandMaps mixes building permits with code enforcement / case types. Rows tagged <strong>enforcement</strong> are flagged from PortlandMaps category labels (e.g. "Enforcement: …").</div>
+    <table style="width:100%;border-collapse:collapse;font-size:12px;">
+      <thead><tr style="background:#f4f6f4;text-align:left;">
+        <th style="padding:8px 10px;font-size:11px;color:#333;">Permit / case</th>
+        <th style="padding:8px 10px;font-size:11px;color:#333;">Type</th>
+        <th style="padding:8px 10px;font-size:11px;color:#333;">Status</th>
+        <th style="padding:8px 10px;font-size:11px;color:#333;">Application / IVR</th>
+      </tr></thead>
+      <tbody><tr>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;vertical-align:top;">Tree Code </td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Code Compliance</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Closed - UF</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:11px;color:#555;">2025-045832-000-00-UF<br/><span style="color:#888;">IVR 5160833</span></td>
+      </tr><tr>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;vertical-align:top;">Electrical Permit </td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Commercial or Multi-Family Dwelling/Structure</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Final Inspection Approved</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:11px;color:#555;">2025-041359-000-00-ET<br/><span style="color:#888;">IVR 5156160</span></td>
+      </tr><tr>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;vertical-align:top;">Tree Code </td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Emergency</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Emergency Resolved</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:11px;color:#555;">2025-036686-000-00-UF<br/><span style="color:#888;">IVR 5151271</span></td>
+      </tr><tr>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;vertical-align:top;">Electrical Permit </td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Commercial or Multi-Family Dwelling/Structure</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Final Inspection Approved</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:11px;color:#555;">2023-089795-000-00-ET<br/><span style="color:#888;">IVR 4975049</span></td>
+      </tr><tr>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;vertical-align:top;">Electrical Permit </td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Commercial or Multi-Family Dwelling/Structure</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Final Inspection Approved</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:11px;color:#555;">2023-059047-000-00-ET<br/><span style="color:#888;">IVR 4942998</span></td>
+      </tr><tr>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;vertical-align:top;">Facility Permit </td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Electrical</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Final Inspection Approved</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:11px;color:#555;">2021-109891-000-00-FA<br/><span style="color:#888;">IVR 4751642</span></td>
+      </tr><tr>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;vertical-align:top;">Facility Permit </td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Project</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Issued</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:11px;color:#555;">2021-109888-000-00-FA<br/><span style="color:#888;">IVR 4751639</span></td>
+      </tr><tr>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;vertical-align:top;">Facility Permit </td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Electrical</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Final Inspection Approved</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:11px;color:#555;">2021-054221-000-00-FA<br/><span style="color:#888;">IVR 4693487</span></td>
+      </tr><tr>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;vertical-align:top;">Facility Permit </td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Building</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Final Inspection Approved</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:11px;color:#555;">2021-044570-000-00-FA<br/><span style="color:#888;">IVR 4683347</span></td>
+      </tr><tr>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;vertical-align:top;">Facility Permit </td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Project</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Issued</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:11px;color:#555;">2021-044566-000-00-FA<br/><span style="color:#888;">IVR 4683343</span></td>
+      </tr><tr>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;vertical-align:top;">Facility Permit </td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Master</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Issued</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:11px;color:#555;">2020-101726-000-00-FA<br/><span style="color:#888;">IVR 4505325</span></td>
+      </tr><tr>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;vertical-align:top;">Facility Permit </td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Fire Alarms</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Final Inspection Approved</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:11px;color:#555;">2019-178633-000-00-FA<br/><span style="color:#888;">IVR 4409177</span></td>
+      </tr><tr>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;vertical-align:top;">Facility Permit </td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Electrical</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Final Inspection Approved</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:11px;color:#555;">2019-173920-000-00-FA<br/><span style="color:#888;">IVR 4404312</span></td>
+      </tr><tr>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;vertical-align:top;">Facility Permit </td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Electrical</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Final Inspection Approved</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:11px;color:#555;">2019-173913-000-00-FA<br/><span style="color:#888;">IVR 4404305</span></td>
+      </tr><tr>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;vertical-align:top;">Facility Permit </td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Mechanical</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Final Inspection Approved</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:11px;color:#555;">2019-173233-000-00-FA<br/><span style="color:#888;">IVR 4403605</span></td>
+      </tr><tr>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;vertical-align:top;">Facility Permit </td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Fire Sprinklers</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Final Inspection Approved</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:11px;color:#555;">2019-172144-000-00-FA<br/><span style="color:#888;">IVR 4402481</span></td>
+      </tr><tr>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;vertical-align:top;">Facility Permit </td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Plumbing</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Final Inspection Approved</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:11px;color:#555;">2019-167550-000-00-FA<br/><span style="color:#888;">IVR 4397765</span></td>
+      </tr><tr>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;vertical-align:top;">Facility Permit </td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Electrical</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Final Inspection Approved</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:11px;color:#555;">2019-166818-000-00-FA<br/><span style="color:#888;">IVR 4397009</span></td>
+      </tr><tr>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;vertical-align:top;">Facility Permit </td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Building</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Final Inspection Approved</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:11px;color:#555;">2019-162034-000-00-FA<br/><span style="color:#888;">IVR 4392074</span></td>
+      </tr><tr>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;vertical-align:top;">Facility Permit </td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Project</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Issued</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:11px;color:#555;">2019-162032-000-00-FA<br/><span style="color:#888;">IVR 4392072</span></td>
+      </tr><tr>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;vertical-align:top;">Electrical Permit </td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Commercial or Multi-Family Dwelling/Structure</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">VOID</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:11px;color:#555;">2019-139939-000-00-ET<br/><span style="color:#888;">IVR 4369394</span></td>
+      </tr><tr>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;vertical-align:top;">Facility Permit </td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Electrical</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Final Inspection Approved</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:11px;color:#555;">2019-139067-000-00-FA<br/><span style="color:#888;">IVR 4368498</span></td>
+      </tr><tr>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;vertical-align:top;">Facility Permit </td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Plumbing</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Final Inspection Approved</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:11px;color:#555;">2019-137226-000-00-FA<br/><span style="color:#888;">IVR 4366579</span></td>
+      </tr><tr>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;vertical-align:top;">Facility Permit </td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Building</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Final Inspection Approved</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:11px;color:#555;">2019-135614-000-00-FA<br/><span style="color:#888;">IVR 4364912</span></td>
+      </tr><tr>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;vertical-align:top;">Facility Permit </td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Project</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Issued</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:11px;color:#555;">2019-135601-000-00-FA<br/><span style="color:#888;">IVR 4364899</span></td>
+      </tr><tr>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;vertical-align:top;">Electrical Permit </td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Commercial or Multi-Family Dwelling/Structure</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">VOID</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:11px;color:#555;">2017-247841-000-00-ET<br/><span style="color:#888;">IVR 4096003</span></td>
+      </tr><tr>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;vertical-align:top;">Electrical Permit </td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Commercial or Multi-Family Dwelling/Structure</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Final Inspection Approved</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:11px;color:#555;">2017-226464-000-00-ET<br/><span style="color:#888;">IVR 4074245</span></td>
+      </tr><tr>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;vertical-align:top;">Tree Code </td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Root Pruning</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Expired - UF</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:11px;color:#555;">2016-157161-000-00-UF<br/><span style="color:#888;">IVR 3806324</span></td>
+      </tr><tr>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;vertical-align:top;">Electrical Permit </td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Commercial or Multi-Family Dwelling/Structure</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">VOID</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:11px;color:#555;">2016-103803-000-00-ET<br/><span style="color:#888;">IVR 3751776</span></td>
+      </tr><tr>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;vertical-align:top;">Electrical Permit </td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Commercial or Multi-Family Dwelling/Structure</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Final Inspection Approved</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:11px;color:#555;">2013-193136-000-00-ET<br/><span style="color:#888;">IVR 3353283</span></td>
+      </tr></tbody>
+    </table>
+    <div style="padding:10px 14px;font-size:12px;color:#666;">…and 784 more row(s) not shown.</div>
+  </div>"
+,
+      "type": "text",
+    },
+  ],
+  "isError": undefined,
+  "joinedText": 
+"111 SW 5TH AVE — 814 permit / case row(s) on file. No rows were tagged as dedicated enforcement categories; still scan types for compliance / tree / ROW activity. Roughly 21 row(s) have a status that may still be in progress (heuristic).
+Structured JSON lists the first 60 of 814 rows.
+\`\`\`json
+{
+  "property_id": "R496358",
+  "row_count": 814,
+  "rows_json_truncated": true,
+  "rows": [
+    {
+      "permitLabel": "Tree Code",
+      "applicationNumber": "2025-045832-000-00-UF",
+      "category": "Code Compliance",
+      "work": "Right-of-Way",
+      "status": "Closed - UF",
+      "lastAction": "October, 28 2025 18:29:49",
+      "ivrNumber": "5160833",
+      "address": "555 SW OAK ST",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Electrical Permit",
+      "applicationNumber": "2025-041359-000-00-ET",
+      "category": "Commercial or Multi-Family Dwelling/Structure",
+      "work": "New Construction",
+      "status": "Final Inspection Approved",
+      "lastAction": "May, 28 2025 13:01:33",
+      "ivrNumber": "5156160",
+      "address": "445 SW PINE ST",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Tree Code",
+      "applicationNumber": "2025-036686-000-00-UF",
+      "category": "Emergency",
+      "work": "Right-of-Way",
+      "status": "Emergency Resolved",
+      "lastAction": "June, 10 2025 11:22:20",
+      "ivrNumber": "5151271",
+      "address": "555 SW OAK ST",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Electrical Permit",
+      "applicationNumber": "2023-089795-000-00-ET",
+      "category": "Commercial or Multi-Family Dwelling/Structure",
+      "work": "New Construction",
+      "status": "Final Inspection Approved",
+      "lastAction": "October, 05 2023 10:07:02",
+      "ivrNumber": "4975049",
+      "address": "555 SW OAK ST",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Electrical Permit",
+      "applicationNumber": "2023-059047-000-00-ET",
+      "category": "Commercial or Multi-Family Dwelling/Structure",
+      "work": "Addition/Alteration/Replacement",
+      "status": "Final Inspection Approved",
+      "lastAction": "July, 10 2023 13:39:40",
+      "ivrNumber": "4942998",
+      "address": "129 SW 4TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2021-109891-000-00-FA",
+      "category": "Electrical",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "July, 15 2022 11:52:49",
+      "ivrNumber": "4751642",
+      "address": "129 SW 4TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2021-109888-000-00-FA",
+      "category": "Project",
+      "work": "Alteration",
+      "status": "Issued",
+      "lastAction": "November, 30 2021 10:14:45",
+      "ivrNumber": "4751639",
+      "address": "129 SW 4TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2021-054221-000-00-FA",
+      "category": "Electrical",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "May, 04 2023 12:56:08",
+      "ivrNumber": "4693487",
+      "address": "129 SW 4TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2021-044570-000-00-FA",
+      "category": "Building",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "May, 17 2023 04:10:37",
+      "ivrNumber": "4683347",
+      "address": "129 SW 4TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2021-044566-000-00-FA",
+      "category": "Project",
+      "work": "Alteration",
+      "status": "Issued",
+      "lastAction": "May, 06 2021 10:38:29",
+      "ivrNumber": "4683343",
+      "address": "129 SW 4TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2020-101726-000-00-FA",
+      "category": "Master",
+      "work": "Master",
+      "status": "Issued",
+      "lastAction": "January, 06 2020 11:22:38",
+      "ivrNumber": "4505325",
+      "address": "129 SW 4TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2019-178633-000-00-FA",
+      "category": "Fire Alarms",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "June, 26 2019 06:48:03",
+      "ivrNumber": "4409177",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2019-173920-000-00-FA",
+      "category": "Electrical",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "June, 28 2019 12:50:19",
+      "ivrNumber": "4404312",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2019-173913-000-00-FA",
+      "category": "Electrical",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "June, 28 2019 12:49:44",
+      "ivrNumber": "4404305",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2019-173233-000-00-FA",
+      "category": "Mechanical",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "June, 24 2019 18:08:09",
+      "ivrNumber": "4403605",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2019-172144-000-00-FA",
+      "category": "Fire Sprinklers",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "June, 10 2019 11:33:43",
+      "ivrNumber": "4402481",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2019-167550-000-00-FA",
+      "category": "Plumbing",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "June, 28 2019 07:55:15",
+      "ivrNumber": "4397765",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2019-166818-000-00-FA",
+      "category": "Electrical",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "June, 28 2019 12:49:06",
+      "ivrNumber": "4397009",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2019-162034-000-00-FA",
+      "category": "Building",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "July, 01 2019 10:34:57",
+      "ivrNumber": "4392074",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2019-162032-000-00-FA",
+      "category": "Project",
+      "work": "Alteration",
+      "status": "Issued",
+      "lastAction": "May, 08 2019 13:43:19",
+      "ivrNumber": "4392072",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Electrical Permit",
+      "applicationNumber": "2019-139939-000-00-ET",
+      "category": "Commercial or Multi-Family Dwelling/Structure",
+      "work": "Addition/Alteration/Replacement",
+      "status": "VOID",
+      "lastAction": "March, 23 2020 01:10:27",
+      "ivrNumber": "4369394",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2019-139067-000-00-FA",
+      "category": "Electrical",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "March, 28 2019 12:07:24",
+      "ivrNumber": "4368498",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2019-137226-000-00-FA",
+      "category": "Plumbing",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "April, 05 2019 14:07:04",
+      "ivrNumber": "4366579",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2019-135614-000-00-FA",
+      "category": "Building",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "April, 08 2019 14:35:04",
+      "ivrNumber": "4364912",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2019-135601-000-00-FA",
+      "category": "Project",
+      "work": "Alteration",
+      "status": "Issued",
+      "lastAction": "March, 20 2019 14:53:29",
+      "ivrNumber": "4364899",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Electrical Permit",
+      "applicationNumber": "2017-247841-000-00-ET",
+      "category": "Commercial or Multi-Family Dwelling/Structure",
+      "work": "Addition/Alteration/Replacement",
+      "status": "VOID",
+      "lastAction": "September, 22 2018 01:00:57",
+      "ivrNumber": "4096003",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Electrical Permit",
+      "applicationNumber": "2017-226464-000-00-ET",
+      "category": "Commercial or Multi-Family Dwelling/Structure",
+      "work": "Addition/Alteration/Replacement",
+      "status": "Final Inspection Approved",
+      "lastAction": "September, 12 2017 14:38:46",
+      "ivrNumber": "4074245",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Tree Code",
+      "applicationNumber": "2016-157161-000-00-UF",
+      "category": "Root Pruning",
+      "work": "Right-of-Way",
+      "status": "Expired - UF",
+      "lastAction": "August, 03 2022 13:19:17",
+      "ivrNumber": "3806324",
+      "address": "555 SW OAK ST",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Electrical Permit",
+      "applicationNumber": "2016-103803-000-00-ET",
+      "category": "Commercial or Multi-Family Dwelling/Structure",
+      "work": "Addition/Alteration/Replacement",
+      "status": "VOID",
+      "lastAction": "July, 31 2017 01:04:49",
+      "ivrNumber": "3751776",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Electrical Permit",
+      "applicationNumber": "2013-193136-000-00-ET",
+      "category": "Commercial or Multi-Family Dwelling/Structure",
+      "work": "Addition/Alteration/Replacement",
+      "status": "Final Inspection Approved",
+      "lastAction": "January, 08 2014 16:21:41",
+      "ivrNumber": "3353283",
+      "address": "555 SW OAK ST",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2013-159614-000-00-FA",
+      "category": "Fire Alarms",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "June, 05 2013 06:43:51",
+      "ivrNumber": "3319436",
+      "address": null,
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Early Assistance",
+      "applicationNumber": "2013-139300-000-00-EA",
+      "category": "DA - Design Advice Request",
+      "work": "Other",
+      "status": "Completed",
+      "lastAction": "June, 05 2013 14:44:14",
+      "ivrNumber": "3298907",
+      "address": "555 SW OAK ST",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Early Assistance",
+      "applicationNumber": "2013-139295-000-00-EA",
+      "category": "PC - PreApplication Conference",
+      "work": "z_PC - Required",
+      "status": "Completed",
+      "lastAction": "May, 14 2013 09:26:07",
+      "ivrNumber": "3298901",
+      "address": "555 SW OAK ST",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2010-126741-000-00-FA",
+      "category": "Plumbing",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "April, 19 2010 11:59:19",
+      "ivrNumber": "2941657",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2010-126681-000-00-FA",
+      "category": "Project",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "July, 18 2012 14:04:16",
+      "ivrNumber": "2941597",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2010-124508-000-00-FA",
+      "category": "Project",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "July, 18 2012 14:04:16",
+      "ivrNumber": "2939396",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2010-114601-000-00-FA",
+      "category": "Electrical",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "March, 25 2010 10:29:45",
+      "ivrNumber": "2929341",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2010-113234-000-00-FA",
+      "category": "Electrical",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "March, 26 2010 06:35:24",
+      "ivrNumber": "2927951",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2010-112935-000-00-FA",
+      "category": "Building",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "April, 22 2010 13:52:18",
+      "ivrNumber": "2927650",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2010-112934-000-00-FA",
+      "category": "Project",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "July, 18 2012 14:04:12",
+      "ivrNumber": "2927649",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2010-104893-000-00-FA",
+      "category": "Building",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "April, 22 2010 13:50:50",
+      "ivrNumber": "2919443",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2010-104891-000-00-FA",
+      "category": "Project",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "July, 18 2012 14:04:10",
+      "ivrNumber": "2919441",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2010-104695-000-00-FA",
+      "category": "Mechanical",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "February, 11 2010 14:16:14",
+      "ivrNumber": "2919244",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2010-103260-000-00-FA",
+      "category": "Electrical",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "February, 11 2010 07:21:58",
+      "ivrNumber": "2917795",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2010-103222-000-00-FA",
+      "category": "Electrical",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "February, 11 2010 07:21:09",
+      "ivrNumber": "2917757",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2010-101925-000-00-FA",
+      "category": "Electrical",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "January, 12 2010 07:42:50",
+      "ivrNumber": "2916433",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2010-101924-000-00-FA",
+      "category": "Electrical",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "January, 12 2010 07:42:07",
+      "ivrNumber": "2916432",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2010-101923-000-00-FA",
+      "category": "Project",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "July, 18 2012 14:04:10",
+      "ivrNumber": "2916431",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2010-101874-000-00-FA",
+      "category": "Building",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "February, 11 2010 14:17:01",
+      "ivrNumber": "2916379",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2010-101873-000-00-FA",
+      "category": "Project",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "July, 18 2012 14:04:10",
+      "ivrNumber": "2916377",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2009-179662-000-00-FA",
+      "category": "Electrical",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "April, 19 2010 06:58:57",
+      "ivrNumber": "2912007",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2009-179343-000-00-FA",
+      "category": "Mechanical",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "March, 17 2010 11:29:23",
+      "ivrNumber": "2911688",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2009-179255-000-00-FA",
+      "category": "Fire Sprinklers",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "January, 11 2010 09:03:32",
+      "ivrNumber": "2911599",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2009-178715-000-00-FA",
+      "category": "Plumbing",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "January, 29 2010 07:41:10",
+      "ivrNumber": "2911059",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2009-174694-000-00-FA",
+      "category": "Electrical",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "April, 19 2010 06:59:36",
+      "ivrNumber": "2904529",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2009-174595-DFS-01-FA",
+      "category": "Building",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "December, 21 2010 07:09:29",
+      "ivrNumber": "2910258",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2009-174595-000-00-FA",
+      "category": "Building",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "April, 19 2010 07:06:00",
+      "ivrNumber": "2904430",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2009-174593-000-00-FA",
+      "category": "Project",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "July, 18 2012 14:04:06",
+      "ivrNumber": "2904428",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2009-172299-000-00-FA",
+      "category": "Electrical",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "December, 01 2009 11:33:25",
+      "ivrNumber": "2901955",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    },
+    {
+      "permitLabel": "Facility Permit",
+      "applicationNumber": "2009-172294-000-00-FA",
+      "category": "Electrical",
+      "work": "Alteration",
+      "status": "Final Inspection Approved",
+      "lastAction": "December, 01 2009 11:32:39",
+      "ivrNumber": "2901950",
+      "address": "111 SW 5TH AVE",
+      "isCodeEnforcement": false
+    }
+  ]
+}
+\`\`\`
+
+  <div style="max-width:720px;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,0.08);border:1px solid #e0e0e0;overflow:hidden;background:#fff;font-family:system-ui,sans-serif;">
+    <div style="padding:12px 14px;background:#2d5f3e;color:#fff;font-weight:600;font-size:14px;">Permits / cases — 111 SW 5TH AVE</div>
+    <div style="padding:10px 14px;font-size:12px;color:#555;line-height:1.45;">PortlandMaps mixes building permits with code enforcement / case types. Rows tagged <strong>enforcement</strong> are flagged from PortlandMaps category labels (e.g. "Enforcement: …").</div>
+    <table style="width:100%;border-collapse:collapse;font-size:12px;">
+      <thead><tr style="background:#f4f6f4;text-align:left;">
+        <th style="padding:8px 10px;font-size:11px;color:#333;">Permit / case</th>
+        <th style="padding:8px 10px;font-size:11px;color:#333;">Type</th>
+        <th style="padding:8px 10px;font-size:11px;color:#333;">Status</th>
+        <th style="padding:8px 10px;font-size:11px;color:#333;">Application / IVR</th>
+      </tr></thead>
+      <tbody><tr>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;vertical-align:top;">Tree Code </td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Code Compliance</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Closed - UF</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:11px;color:#555;">2025-045832-000-00-UF<br/><span style="color:#888;">IVR 5160833</span></td>
+      </tr><tr>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;vertical-align:top;">Electrical Permit </td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Commercial or Multi-Family Dwelling/Structure</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Final Inspection Approved</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:11px;color:#555;">2025-041359-000-00-ET<br/><span style="color:#888;">IVR 5156160</span></td>
+      </tr><tr>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;vertical-align:top;">Tree Code </td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Emergency</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Emergency Resolved</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:11px;color:#555;">2025-036686-000-00-UF<br/><span style="color:#888;">IVR 5151271</span></td>
+      </tr><tr>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;vertical-align:top;">Electrical Permit </td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Commercial or Multi-Family Dwelling/Structure</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Final Inspection Approved</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:11px;color:#555;">2023-089795-000-00-ET<br/><span style="color:#888;">IVR 4975049</span></td>
+      </tr><tr>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;vertical-align:top;">Electrical Permit </td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Commercial or Multi-Family Dwelling/Structure</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Final Inspection Approved</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:11px;color:#555;">2023-059047-000-00-ET<br/><span style="color:#888;">IVR 4942998</span></td>
+      </tr><tr>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;vertical-align:top;">Facility Permit </td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Electrical</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Final Inspection Approved</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:11px;color:#555;">2021-109891-000-00-FA<br/><span style="color:#888;">IVR 4751642</span></td>
+      </tr><tr>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;vertical-align:top;">Facility Permit </td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Project</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Issued</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:11px;color:#555;">2021-109888-000-00-FA<br/><span style="color:#888;">IVR 4751639</span></td>
+      </tr><tr>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;vertical-align:top;">Facility Permit </td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Electrical</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Final Inspection Approved</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:11px;color:#555;">2021-054221-000-00-FA<br/><span style="color:#888;">IVR 4693487</span></td>
+      </tr><tr>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;vertical-align:top;">Facility Permit </td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Building</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Final Inspection Approved</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:11px;color:#555;">2021-044570-000-00-FA<br/><span style="color:#888;">IVR 4683347</span></td>
+      </tr><tr>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;vertical-align:top;">Facility Permit </td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Project</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Issued</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:11px;color:#555;">2021-044566-000-00-FA<br/><span style="color:#888;">IVR 4683343</span></td>
+      </tr><tr>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;vertical-align:top;">Facility Permit </td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Master</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Issued</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:11px;color:#555;">2020-101726-000-00-FA<br/><span style="color:#888;">IVR 4505325</span></td>
+      </tr><tr>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;vertical-align:top;">Facility Permit </td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Fire Alarms</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Final Inspection Approved</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:11px;color:#555;">2019-178633-000-00-FA<br/><span style="color:#888;">IVR 4409177</span></td>
+      </tr><tr>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;vertical-align:top;">Facility Permit </td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Electrical</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Final Inspection Approved</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:11px;color:#555;">2019-173920-000-00-FA<br/><span style="color:#888;">IVR 4404312</span></td>
+      </tr><tr>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;vertical-align:top;">Facility Permit </td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Electrical</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Final Inspection Approved</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:11px;color:#555;">2019-173913-000-00-FA<br/><span style="color:#888;">IVR 4404305</span></td>
+      </tr><tr>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;vertical-align:top;">Facility Permit </td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Mechanical</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Final Inspection Approved</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:11px;color:#555;">2019-173233-000-00-FA<br/><span style="color:#888;">IVR 4403605</span></td>
+      </tr><tr>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;vertical-align:top;">Facility Permit </td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Fire Sprinklers</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Final Inspection Approved</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:11px;color:#555;">2019-172144-000-00-FA<br/><span style="color:#888;">IVR 4402481</span></td>
+      </tr><tr>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;vertical-align:top;">Facility Permit </td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Plumbing</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Final Inspection Approved</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:11px;color:#555;">2019-167550-000-00-FA<br/><span style="color:#888;">IVR 4397765</span></td>
+      </tr><tr>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;vertical-align:top;">Facility Permit </td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Electrical</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Final Inspection Approved</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:11px;color:#555;">2019-166818-000-00-FA<br/><span style="color:#888;">IVR 4397009</span></td>
+      </tr><tr>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;vertical-align:top;">Facility Permit </td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Building</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Final Inspection Approved</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:11px;color:#555;">2019-162034-000-00-FA<br/><span style="color:#888;">IVR 4392074</span></td>
+      </tr><tr>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;vertical-align:top;">Facility Permit </td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Project</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Issued</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:11px;color:#555;">2019-162032-000-00-FA<br/><span style="color:#888;">IVR 4392072</span></td>
+      </tr><tr>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;vertical-align:top;">Electrical Permit </td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Commercial or Multi-Family Dwelling/Structure</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">VOID</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:11px;color:#555;">2019-139939-000-00-ET<br/><span style="color:#888;">IVR 4369394</span></td>
+      </tr><tr>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;vertical-align:top;">Facility Permit </td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Electrical</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Final Inspection Approved</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:11px;color:#555;">2019-139067-000-00-FA<br/><span style="color:#888;">IVR 4368498</span></td>
+      </tr><tr>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;vertical-align:top;">Facility Permit </td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Plumbing</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Final Inspection Approved</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:11px;color:#555;">2019-137226-000-00-FA<br/><span style="color:#888;">IVR 4366579</span></td>
+      </tr><tr>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;vertical-align:top;">Facility Permit </td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Building</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Final Inspection Approved</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:11px;color:#555;">2019-135614-000-00-FA<br/><span style="color:#888;">IVR 4364912</span></td>
+      </tr><tr>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;vertical-align:top;">Facility Permit </td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Project</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Issued</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:11px;color:#555;">2019-135601-000-00-FA<br/><span style="color:#888;">IVR 4364899</span></td>
+      </tr><tr>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;vertical-align:top;">Electrical Permit </td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Commercial or Multi-Family Dwelling/Structure</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">VOID</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:11px;color:#555;">2017-247841-000-00-ET<br/><span style="color:#888;">IVR 4096003</span></td>
+      </tr><tr>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;vertical-align:top;">Electrical Permit </td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Commercial or Multi-Family Dwelling/Structure</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Final Inspection Approved</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:11px;color:#555;">2017-226464-000-00-ET<br/><span style="color:#888;">IVR 4074245</span></td>
+      </tr><tr>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;vertical-align:top;">Tree Code </td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Root Pruning</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Expired - UF</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:11px;color:#555;">2016-157161-000-00-UF<br/><span style="color:#888;">IVR 3806324</span></td>
+      </tr><tr>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;vertical-align:top;">Electrical Permit </td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Commercial or Multi-Family Dwelling/Structure</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">VOID</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:11px;color:#555;">2016-103803-000-00-ET<br/><span style="color:#888;">IVR 3751776</span></td>
+      </tr><tr>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;vertical-align:top;">Electrical Permit </td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Commercial or Multi-Family Dwelling/Structure</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#444;">Final Inspection Approved</td>
+        <td style="padding:8px 10px;border-bottom:1px solid #eee;font-size:11px;color:#555;">2013-193136-000-00-ET<br/><span style="color:#888;">IVR 3353283</span></td>
+      </tr></tbody>
+    </table>
+    <div style="padding:10px 14px;font-size:12px;color:#666;">…and 784 more row(s) not shown.</div>
+  </div>"
 ,
 }
 `;
